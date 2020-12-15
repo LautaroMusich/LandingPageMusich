@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.2rem;
+  min-height: 100%;
+}
+
+.grid-container > * {
+  padding: 10px;
+  text-align: left;
+}
+
+.header {
+  grid-area: header;
+  background-image: url(../img/logoheader.jpg);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+  padding: 5%;
+}
+
+.main {
+  grid-area: main;
+  background-color: #fff;
+  padding: 5%;
+
+}
+
+.footer {
+  grid-area: footer;
+  font-size: 0.8rem;
+  text-align: center;
+  background-color: #362727;
+}
+
+#logoheader{
+  width: 100%;
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template:
+    "header"  100px
+    "main"    auto
+    "sidebar" 320px
+    "footer"  50px;
+}
+    .nombre{
+    font-size: 15px;
+    color: #ffff;
+    padding-top: 5px;
+    text-decoration: none;
+  
+}
+    
+   h1{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  font-size: 37px;
+  
+}
+
+h2{ color: #F4B3AF;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+
+h3{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  margin-top: 3%;
+  
+}
+
+h4{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  
+}
+
+p{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  
+}
+
+#formulario{
+  width: 65%;
+  height: 465px;
+  padding-top: 1%;
+  margin-left: 15%;
+  background-color: #F4B3AF;
+  border-radius: 5px;
+
+}
+
+.botonturnos{
+  width: 200px;
+  height: 25px;
+  background-color: #362727;
+  color: #fff;
+  border-radius: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 6%;
+}
+
+img{
+    max-width: 100%;
+}
+
+.container-all{
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 4%;
+}
+
+.slide{
+    display: flex;
+    transform: translate3d(0, 0, 0);
+    transition: all 600ms;
+    animation-name: autoplay;
+    animation-duration: 6.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.item-slide{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-width: 100%;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pagination-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 10px;
+    text-align: center;
+    transition: all 300ms;
+}
+
+.pagination-item:hover{
+    transform: scale(2);
+}
+
+.pagination-item img{
+    display: inline-block;
+    max-width: none;
+    height: 100%;
+    transform: scale(1);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+.pagination-item:hover img{
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+input[id="1"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(0, 0, 0);
+}
+
+input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+    background: #fff;
+}
+
+input[id="2"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(calc(-100% * 1), 0, 0);
+}
+
+input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+    background: #fff;
+}
+
+
+input[id="3"]:checked ~ .slide{
+    animation: none;
+    transform: translate3d(calc(-100% * 2), 0, 0);
+}
+
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+    background: #fff;
+}
+
+
+@keyframes autoplay{
+    33%{
+        transform: translate3d(calc(-100% * 0), 0, 0);
+    }
+    
+    66%{
+        transform: translate3d(calc(-100% * 1), 0, 0);
+    }
+    
+    100%{
+        transform: translate3d(calc(-100% * 2), 0, 0);
+    }
+}
+
+
+@media (min-width: 600px) {
+  .grid-container {
+    /* grid-template-columns: 200px auto;
+    grid-template-rows: 100px 50px auto 100px;
+    grid-template-areas: 
+    "header  header"
+    "navbar  navbar"
+    "sidebar main"
+    "footer  footer"; */
+
+    grid-template:
+      "header  header" 100px
+      "main    main"auto
+      "sidebar sidebar" 420px
+      "footer  footer" 50px /
+      auto    250px;
+    }
+
+    .nombre{
+    font-size: 15px;
+    color: #ffff;
+    padding-top: 5px;
+    text-decoration: none;
+
+    }
+
+    h1{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  font-size: 37px;
+  
+}
+
+h2{ color: #F4B3AF;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+
+h3{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+
+h4{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+   
+  
+}
+
+#formulario{
+  width: 95%;
+  height: 485px;
+  padding-top: 2%;
+  margin-top: 7%;
+  margin-left: 2%;
+  margin-right: 33%;
+  background-color: #F4B3AF;
+  border-radius: 5px;
+
+}
+
+  .botonturnos{
+  width: 150px;
+  height: 25px;
+  background-color: #362727;
+  color: #fff;
+  border-radius: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 6%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+}
+
+
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template:
+      "header  header header"  150px
+      "main    sidebar sidebar" auto
+      "footer  footer footer"  50px /
+      auto     400px  500px;
+}
+
+.nombre{
+  font-size: 15px;
+  color: #ffff;
+  padding-top: 5px;
+  text-decoration: none;
+  
+}
+
+h1{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 900;
+  font-size: 37px;
+  
+}
+
+h2{ color: #F4B3AF;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+
+h3{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 2%;
+  
+}
+
+h4{ color: #362727;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  
+}
+
+#formulario{
+  width: 80%;
+  height: 485px;
+  padding-top: 2%;
+  margin-top: 7%;
+  margin-left: 2%;
+  margin-right: 33%;
+  background-color: #F4B3AF;
+  border-radius: 5px;
+
+}
+
+.botonturnos{
+  width: 200px;
+  height: 25px;
+  background-color: #362727;
+  color: #fff;
+  border-radius: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 6%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fff;
+  padding: 5%;
+}
+
+.container-all{
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 11%;
+}
+
+  
